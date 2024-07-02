@@ -354,8 +354,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
          /*  $opciones = ['cost' => 12];
           $password_hashed = password_hash($usuario, PASSWORD_BCRYPT, $opciones) . "/n"; */
 
-          $stmt = $conn->prepare("UPDATE siscpi_logins SET logins_nickname=?, logins_nombre=?, logins_nivel=?, logins_intentos=?, logins_status=?, logins_editado = NOW() WHERE logins_id_login=?");
-          $stmt->bind_param("ssiisi", $usuario, $nombre, $acceso, $intentos, $status, $user_id_login);
+          $stmt = $conn->prepare("UPDATE siscpi_logins SET /* logins_nickname=?,  */logins_nombre=?, logins_nivel=?, logins_intentos=?, logins_status=?, logins_editado = NOW() WHERE logins_id_login=?");
+          $stmt->bind_param("siisi", /* $usuario,  */$nombre, $acceso, $intentos, $status, $user_id_login);
           $stmt->execute();
 
           if($stmt->affected_rows){

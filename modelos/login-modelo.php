@@ -2,8 +2,8 @@
 if($_SERVER["REQUEST_METHOD"] === "POST")
 {
   if(isset($_POST['login-user'])){
-    $usuario = preg_replace('([^0-9.])', '', $data['nickname']);
-    $password = preg_replace('([^0-9.])', '', $data['password']);
+    $usuario = preg_replace('([^A-Za-z0-9])', '', $_POST['nickname']);
+    $password = preg_replace('([^0-9.])', '', $_POST['password']);
 
     include_once '../funciones/funciones.php';
         try {
